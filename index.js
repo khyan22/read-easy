@@ -1,9 +1,9 @@
-// TODO: Include packages needed for this application
+//all packages and exports
 const inquirer = require('inquirer')
 const fs = require('fs')
 const generateMarkdown = require('./utils/generateMarkdown')
 
-// TODO: Create an array of questions for user input
+// prompts the user with questions that are used to make the README
 const questions = () => {
     return inquirer.prompt([
         {
@@ -129,13 +129,30 @@ const questions = () => {
     ])
 }
 
-// TODO: Create a function to write README file
-const writeToFile = data => {
+//this function writes the md file in the dist folder and it uses the data from generateMarkdown() to populate the file and if
+const writeFile = data => {
+    fs.writeFile('./dist/README.md', data, err => {
+        if (err) {
+            console.log(err)
+            return
+        } else {
+            console.log('Your README is complete, go to the "dist" folder to check it out')
+        }
+    })
    
 }
 
 
 questions()
+    //uses prompt input from user to generate the markdown, the data is sent through the "promptAnswer" parameters 
     .then(promptAnswers => {
+        //returns the markdown
         return generateMarkdown(promptAnswers)
+    })
+    //uses the markdown generated to write the the file
+    .then(readMeContent => {
+        return writeFile(readMeContent)
+    })
+    .catch(err => {
+        console.log(err)
     })
