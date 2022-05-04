@@ -1,5 +1,7 @@
 // TODO: Include packages needed for this application
-var inquirer = require('inquirer');
+const inquirer = require('inquirer')
+const fs = require('fs')
+const generateMarkdown = require('./utils/generateMarkdown')
 
 // TODO: Create an array of questions for user input
 const questions = () => {
@@ -30,6 +32,15 @@ const questions = () => {
                 }
             }
         }, 
+        {
+            type: 'checklist',
+            name: 'languages',
+            message: 'Please select what languages and technologies were used for this project.',
+            choices: [
+                'JavaScript', 'HTML', 'CSS', 'jQuery', 'Bootstrap', 'Node', 'Ruby', 'Python', 'C++',
+                'Java', 'SQL', 'NoSQL', 'C#'
+            ]
+        },
         {
             type: 'input',
             name: 'usage',
@@ -72,7 +83,7 @@ const questions = () => {
         },
         {
             type: 'input',
-            name: 'contribution',
+            name: 'contributions',
             message: 'Add any contributors that have worked on the project.',
             validate: contributionInput => {
                 if (contributionInput) {
@@ -119,10 +130,12 @@ const questions = () => {
 }
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+const writeToFile = data => {
+   
+}
 
-// TODO: Create a function to initialize app
-function init() {}
 
-// Function call to initialize app
-init();
+questions()
+    .then(promptAnswers => {
+        return generateMarkdown(promptAnswers)
+    })
