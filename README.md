@@ -15,26 +15,26 @@ JavaScript, Node
 - [Questions](#questions)
 
 ## Description
-Read Easy is a README generator that gives the user prompts and takes the input the user gives to form a comprehensive READM
+Read Easy is a README generator that gives the user prompts and takes the input the user gives to form a comprehensive README.
 
 ## Usage
-The project is very simple to use you only need to input "node index" into the command line and answer the prompt that are given. That being said make sure you have node.js installed and are in theapplications root folder
+The project is very simple to use you only need to input "node index" into the command line and answer the prompt that are given. That being said make sure you have node.js and inquirer installed (instructions in the installation section).
 
 ## Code Breakdown
-The code is very simple, I used a questions() function to call in the inquirer prompt and made an aray consisting of objects that hold the questions. The user input is then sent to the generateMarkdown() function, using .then(), that returns the readme template with the users input. After it runs another .then() sends the template to the writeFile() function and it uses the template to populate the .md file it creates in the dist folder
+The code is very simple, I used a questions() function to call in the inquirer prompt and made an array consisting of objects that hold the questions. The user input is then sent to the generateMarkdown() function, using .then(), that returns the readme template with the users input. After it runs another .then() sends the template to the writeFile() function and it uses the template to populate the .md file it creates in the dist folder
 
 ## Installation
-undefined
+To install the application press the green "code" button and click on "Download ZIP", while in the command line and in projects root directory, type "npm i inquirer". If you don't have Node you can read this article: https://coding-boot-camp.github.io/full-stack/nodejs/how-to-install-nodejs 
 
 ## Contributions
 Khyan Alvarez
 
 ## Test
-none
+This project doesn't have any test commands.
 
 ## License
-This project uses the "Apache_License_2.0" license.
+This project uses the "Apache_License_2.0" license. (This is an example, this project does not have a license)
 
 ## Questions
 If you have any questions you can reach me at khyanalvarez@gmail.com. 
-You can see my other projects at https://github.com/khyan22
+You can see my other projects at https://github.com/khyan22.

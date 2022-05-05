@@ -27,7 +27,7 @@ function generateMarkdown(data) {
   ${data.breakdown}
 
   ## Installation
-  ${data.Installation}
+  ${data.installation}
 
   ## Contributions
   ${data.contributions}
