@@ -156,10 +156,20 @@ const writeFile = data => {
    
 }
 
+const writeDir = () => {
+    fs.mkdir('./dist', {recursive: true}, (err) => {
+        if (err) {
+            throw err
+        }
+    })
+}
+
 
 questions()
     //uses prompt input from user to generate the markdown, the data is sent through the "promptAnswer" parameters 
     .then(promptAnswers => {
+        //creates the dist folder 
+        writeDir()
         //returns the markdown
         return generateMarkdown(promptAnswers)
     })
