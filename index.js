@@ -33,7 +33,7 @@ const questions = () => {
             }
         }, 
         {
-            type: 'checklist',
+            type: 'checkbox',
             name: 'languages',
             message: 'Please select what languages and technologies were used for this project.',
             choices: [
@@ -56,8 +56,21 @@ const questions = () => {
         },
         {
             type: 'input',
+            name: 'breakdown',
+            message: 'Please describe how your code works.',
+            validate: breakdownInput => {
+                if (breakdownInput) {
+                    return true
+                } else {
+                    console.log('You must describe your code!')
+                    return false
+                }
+            }
+        },
+        {
+            type: 'input',
             name: 'installation',
-            message: 'Please explain how to install the application',
+            message: 'Please explain how to install the application.',
             validate: installationInput => {
                 if (installationInput) {
                     return true
@@ -136,7 +149,8 @@ const writeFile = data => {
             console.log(err)
             return
         } else {
-            console.log('Your README is complete, go to the "dist" folder to check it out')
+            console.log('Your README is complete! Go to the "dist" folder to check it out.')
+            console.log('Remember you can always edit the README!')
         }
     })
    
